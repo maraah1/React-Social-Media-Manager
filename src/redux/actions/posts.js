@@ -56,11 +56,11 @@ export const addPosts = (post, buttonsId) => {
 }
 
 
-export const deletePosts = (post) => {
+export const deletePosts = (buttonId) => {
   return async dispatch => {
     try{
       dispatch({type: DELETE_POSTS_PENDING})
-      let deletedPost = await axios.delete(`http://localhost:8000/media/deleteposts`, post)
+      let deletedPost = await axios.delete(`http://localhost:8000/media/deleteposts/${buttonId}`)
       dispatch({
         type: DELETE_POSTS_SUCCESS,
         payload: deletedPost

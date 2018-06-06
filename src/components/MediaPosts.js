@@ -15,9 +15,9 @@ state = {
   }
 
 
-handleSubmit = (e) => {
+handleSubmit = (buttonId, e) => {
   e.preventDefault()
-  this.props.deletePosts(this.state)
+  this.props.deletePosts(buttonId)
 }
 
 
@@ -29,7 +29,7 @@ let {buttons_id, created_at, day, id, image, post, time, updated_at} = this.prop
     <div>
     {post}
     <button>Post</button>
-    <button onClick={this.handleSubmit}>Delete</button>
+    <button onClick={(e) => this.handleSubmit(buttons_id, e)}>Delete</button>
     </div>
     )
   }

@@ -18,8 +18,7 @@ export default (state = [], action) =>  {
     case DELETE_POSTS_PENDING:
        return state
     case DELETE_POSTS_SUCCESS:
-      const posts = state.posts.filter(post => post.id != action.id)
-      return posts
+      return action.payload
     case DELETE_POSTS_FAILED:
        return action.payload
     default:

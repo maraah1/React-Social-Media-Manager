@@ -18,8 +18,17 @@ class MediaAddForm extends Component {
 
 handleSubmit = (e) => {
  e.preventDefault()
- this.props.addPosts(this.state, this.props.buttonsId)
+ let newPost = {
+   image: this.state.image,
+   post: this.state.post,
+   day: this.state.day,
+   time: this.state.time
+ }
+ this.props.addPosts( newPost, this.props.buttonsId)
 }
+
+
+
 
 render(){
 
