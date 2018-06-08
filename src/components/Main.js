@@ -3,10 +3,9 @@ import fetchButtons from '../redux/reducers/buttons'
 
 
 const buttons = {
-  fontSize: '50px',
   display: 'block',
   float: 'left',
-  marginRight: '5px',
+  textAlign: 'center',
 
 }
 
@@ -18,7 +17,7 @@ export class Main extends Component {
   let {id, img_url, name, created_at} = this.props.button
     return(
       <div style={buttons} >
-      <img src={img_url} style={{width: 100, height: 100 }}/>
+      <img src={img_url} style={{width: 200, height: 200 }}/>
       </div>
     )
   }

@@ -9,7 +9,7 @@ import MediaPageList from './components/MediaPageList';
 import MediaPics from './components/MediaPics'
 import MediaAddForm from './components/MediaAddForm'
 import MediaPosts from './components/MediaPosts'
-
+import MediaUpdateForm from './components/MediaUpdateForm'
 
 class App extends Component {
 
@@ -26,6 +26,8 @@ class App extends Component {
             <Route path='/media/:name/:id/posts' component={MediaPics}/>
             <Route path='/media/addposts' component={MediaAddForm}/>
             <Route path='/media/deleteposts' component={MediaPosts}/>
+            <Route path='/statuses/update' component={MediaPosts}/>
+            <Route path='/media/update' component={MediaUpdateForm}/>
          </div>
         </Router>
       </div>

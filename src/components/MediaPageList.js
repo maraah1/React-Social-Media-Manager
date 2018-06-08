@@ -3,8 +3,9 @@ import { Link, hashHistory} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchPictures } from '../redux/actions/pictures';
 import { bindActionCreators} from 'redux';
-import MediaPics from './MediaPics'
-import MediaAddForm from './MediaAddForm'
+import MediaPics from './MediaPics';
+import MediaAddForm from './MediaAddForm';
+import TopNav from './TopNav';
 
 
 
@@ -26,8 +27,8 @@ render() {
       .map(picture => <MediaPics key={picture.id} picture={picture}/>) : null
 
     return (
-      <div>
-       {this.props.match.params.name}
+      <div >
+
        {listOfMediaPictures}
       </div>
     )

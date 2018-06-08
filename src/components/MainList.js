@@ -2,8 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Main from './Main';
 import {Link, withRouter, UpdateBlocker, location} from 'react-router-dom';
+import TopNav from './TopNav';
+
+const body = {
+  backgroundColor: 'magenta'
+}
 
 
+const list = {
+  margin: 'auto',
+  width: '50%',
+  textAlign: 'center',
+  marginTop: '170px',
+
+
+}
 
 class MainList extends Component {
  render() {
@@ -19,9 +32,14 @@ class MainList extends Component {
     console.log('listOfButtons:', listOfButtons)
 
     return (
+  <div  >
     <div>
-     {listOfButtons}
+    <TopNav />
+    <div style={list}>
+     {listOfButtons} 
     </div>
+    </div>
+  </div>
     )
   }
 }

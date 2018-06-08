@@ -3,10 +3,9 @@ import { connect } from 'react-redux';
 import { fetchPosts } from '../redux/actions/posts';
 import { bindActionCreators } from 'redux';
 import MediaPosts from './MediaPosts';
-import MediaAddForm from './MediaAddForm'
-const pics = {
-  fontSize : '20px'
-}
+import MediaAddForm from './MediaAddForm';
+import TopNav from './TopNav';
+import PicsForPosts from './PicsForPosts'
 
 class MediaPics extends Component {
 
@@ -25,7 +24,7 @@ render(){
 
   return (
    <div >
-   <img src={this.props.picture.img_url} style={pics} />
+   <TopNav icon={this.props.picture.img_url} name={this.props.picture.name} />
    {listOfMediaPosts}
    <MediaAddForm buttonsId={this.props.picture.id}  />
    </div>
