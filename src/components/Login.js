@@ -53,7 +53,7 @@ render(){
        <div>
          <input
           style={inputFields}
-          type="text"
+          type="password"
           placeholder="password"
           />
         </div>
