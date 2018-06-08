@@ -5,7 +5,7 @@ import {Link, withRouter, UpdateBlocker, location} from 'react-router-dom';
 import TopNav from './TopNav';
 
 const body = {
-  backgroundColor: 'magenta'
+  backgroundColor: 'lightGrey'
 }
 
 
@@ -13,7 +13,7 @@ const list = {
   margin: 'auto',
   width: '50%',
   textAlign: 'center',
-  marginTop: '170px',
+  marginTop: '150px',
 
 
 }
@@ -36,7 +36,7 @@ class MainList extends Component {
     <div>
     <TopNav />
     <div style={list}>
-     {listOfButtons} 
+     {listOfButtons}
     </div>
     </div>
   </div>

@@ -3,6 +3,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addPosts } from '../redux/actions/posts';
 
+const inputFields = {
+  border: '1px solid none',
+  boxShadow: '1px 1px 1px 1px lightGrey',
+  width: '250px'
+}
+
+
 const ex = {
   marginLeft: '500px',
   textShadow:'2px 0px 5px',
@@ -17,12 +24,13 @@ const box = {
   marginTop:'50px',
   animationName: 'forms',
   animationDuration: '1s',
+  backgroundColor: 'white'
 }
 
 const addButton = {
   fontSize: '275px',
   color: 'lightGrey',
-  paddingTop: '150px'
+  paddingTop: '100px'
 }
 
 
@@ -66,6 +74,7 @@ render(){
                   <div className="col-md-6" >
                     <div >
                     <input
+                       style={inputFields}
                         type="text"
                         name="post"
                         placeholder="What do you want to post?"
@@ -74,16 +83,27 @@ render(){
                         />
                       </div>
                     <div >
-                    <input
+                    <select
+                      style={inputFields}
                       type="text"
                       name="day"
                       placeholder="What day would you like to post?"
                       value={this.state.day}
                       onChange={(e)=> this.setState({day: e.target.value})}
-                      />
+                      >
+                        <option>Monday</option>
+                        <option>Tuesday</option>
+                        <option>Wednesday</option>
+                        <option>Thursday</option>
+                        <option>Friday</option>
+                        <option>Saturday</option>
+                        <option>Sunday</option>
+
+                    </select>
                     </div>
                     <div >
                     <input
+                      style={inputFields}
                       type="text"
                       name="time"
                       placeholder="What time would you like to post?"
@@ -92,17 +112,18 @@ render(){
                       />
                     </div>
                </div>
-              <div className="col-md-6">
+              <div className="col-md-6" >
                   <input
+                    style={inputFields}
                     type="text"
-                    name="image"
+                    name="post"
                     placeholder="Posting a picture?"
                     value={this.state.image}
                     onChange={(e)=> this.setState({image: e.target.value})}
                     />
                 </div>
 
-                  <input className="button-primary" type="submit" value="Submit"/>
+                  <input style={inputFields} className="button-primary" type="submit" value="Submit"/>
 
                 </div>
               </form>

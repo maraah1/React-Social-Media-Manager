@@ -1,16 +1,37 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import logo from './newLogo.png';
 
-const style = {
-  marginTop: '250px',
-  marginRight: '550px',
-  marginLeft: '550px',
-  backgroundColor:'lightBlue',
-  paddingTop: '100px'
+const logoo = {
+  width: '50%',
+  margin: 'auto',
+  marginTop: '30px',
+  color:'black'
+}
+
+const card = {
+  backgroundColor: 'white',
+  borderWidth: '1px',
+  borderColor: 'grey',
+  boxSizing: 'borderBox',
+  width: '500px',
+  margin:'auto',
+  marginTop: '50px',
+  padding: '30px',
+  paddingTop: '60px',
+  textShadow: '2px 2px 4px lightGrey',
+  boxShadow: '0 8px 6px -6px grey'
+};
+
+const inputFields = {
+  border: '1px solid white',
+  boxShadow: '0 8px 6px -6px grey'
 }
 
 const loginButton = {
-  backgroundColor:'pink'
+  backgroundColor:'pink',
+  border: '1px solid pink',
+  boxShadow: '0 8px 6px -6px grey'
 }
 
 export class Login extends Component {
@@ -18,21 +39,25 @@ export class Login extends Component {
 
 render(){
    return (
-    <div style={style}>
+  <div>
+    <img style={logoo} src={logo}/>
+    <div style={card}>
       <form >
       <div>
         <input
+         style={inputFields}
          type="text"
          placeholder="email"
          />
        </div>
        <div>
          <input
+          style={inputFields}
           type="text"
           placeholder="password"
           />
         </div>
-        <button style={loginButton}>
+        <button style={loginButton} >
         <Link to='/main' >Login</Link>
         </button>
         <div>
@@ -40,6 +65,7 @@ render(){
         </div>
       </form>
     </div>
+  </div>
   )
   }
 }

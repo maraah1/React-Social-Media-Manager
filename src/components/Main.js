@@ -5,8 +5,7 @@ import fetchButtons from '../redux/reducers/buttons'
 const buttons = {
   display: 'block',
   float: 'left',
-  textAlign: 'center',
-
+  textAlign: 'center'
 }
 
 
