@@ -5,7 +5,8 @@ import { bindActionCreators } from 'redux';
 import MediaPosts from './MediaPosts';
 import MediaAddForm from './MediaAddForm';
 import TopNav from './TopNav';
-import PicsForPosts from './PicsForPosts'
+import PicsForPosts from './PicsForPosts';
+
 
 class MediaPics extends Component {
 

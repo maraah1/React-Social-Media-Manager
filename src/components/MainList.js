@@ -9,14 +9,7 @@ const body = {
 }
 
 
-const list = {
-  margin: 'auto',
-  width: '50%',
-  textAlign: 'center',
-  marginTop: '150px',
 
-
-}
 
 class MainList extends Component {
  render() {
@@ -35,7 +28,7 @@ class MainList extends Component {
   <div  >
     <div>
     <TopNav />
-    <div style={list}>
+    <div className='list'>
      {listOfButtons}
     </div>
     </div>

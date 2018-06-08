@@ -1,6 +1,7 @@
 import React from 'react'
 import MediaPosts from './MediaPosts';
 import logo from './newLogo.png';
+import {Link} from 'react-router-dom';
 
 const name = {
   display:'inline-block',
@@ -41,10 +42,10 @@ const iconTopNav = {
 }
 
 const somaNav = {
-  width:'80%',
-  height:'80%',
+  width:'65%',
+  height:'65%',
   textAlign: 'center',
-  marginLeft:'450px',
+  marginLeft:'500px',
 
 }
 
@@ -63,7 +64,9 @@ export const TopNav = (props) => {
   <div className="topnav" style={props.icon ? topNavvv : topNavv} id="myTopnav">
    <div className="row" style={row}>
     <div className='col-md-6' style={header} >
-    {props.icon ? <img src={props.icon} style={iconTopNav} /> : <img src={logo} style={somaNav}/>}
+    <Link to='/main'>
+    {props.icon ? <img src={props.icon} style={iconTopNav} /> : <Link to='/'> <img src={logo} style={somaNav}/> </Link>}
+  </Link>
     {props.name}
     </div>
     <div style={header}>

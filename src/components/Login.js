@@ -10,7 +10,7 @@ const logoo = {
 }
 
 const card = {
-  backgroundColor: 'white',
+  backgroundColor: 'lightGrey',
   borderWidth: '1px',
   borderColor: 'grey',
   boxSizing: 'borderBox',
@@ -20,7 +20,7 @@ const card = {
   padding: '30px',
   paddingTop: '60px',
   textShadow: '2px 2px 4px lightGrey',
-  boxShadow: '0 8px 6px -6px grey'
+  boxShadow: '0 8px 6px -6px darkGrey'
 };
 
 const inputFields = {
@@ -29,6 +29,7 @@ const inputFields = {
 }
 
 const loginButton = {
+  color: 'black',
   backgroundColor:'pink',
   border: '1px solid pink',
   boxShadow: '0 8px 6px -6px grey'
