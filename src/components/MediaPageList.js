@@ -14,25 +14,23 @@ class MediaPageList extends Component {
 
 
 
- componentWillMount(){
-   console.log("asldfljkasdjklf");
+ componentWillMount() {
+
    this.props.fetchPictures({name: this.props.match.params.name})
  }
 
 
-render() {
-  console.log('media props:', this.props.pictures)
+  render() {
 
-  let listOfMediaPictures = this.props.pictures ? this.props.pictures
-      .map(picture => <MediaPics key={picture.id} picture={picture}/>) : null
+    let listOfMediaPictures = this.props.pictures ? this.props.pictures
+        .map(picture => <MediaPics key={picture.id} picture={picture}/>) : null
 
-    return (
-      <div >
-
-       {listOfMediaPictures}
-      </div>
-    )
-  }
+      return (
+          <div>
+            {listOfMediaPictures}
+          </div>
+      )
+    }
 }
 
 

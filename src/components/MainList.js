@@ -1,7 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component }  from 'react';
 import { connect } from 'react-redux';
 import Main from './Main';
-import {Link, withRouter, UpdateBlocker, location} from 'react-router-dom';
+import {
+  Link,
+  withRouter,
+  UpdateBlocker,
+  location
+} from 'react-router-dom';
 import TopNav from './TopNav';
 
 const body = {
@@ -12,33 +17,33 @@ const body = {
 
 
 class MainList extends Component {
- render() {
+  render() {
 
- let listOfButtons = this.props.buttons ? this.props.buttons
-    .map(button =>
-       <Link key={button.id} to={`/media/${button.name}/${button.id}`}>
-          <Main button={button} />
-       </Link>
-): null
+    let listOfButtons = this.props.buttons ? this.props.buttons
+      .map(button =>
+        <Link key={button.id} to={`/media/${button.name}/${button.id}`}>
+            <Main button={button}/>
+        </Link>
+      ) : null
 
-    console.log('props:', this.props)
-    console.log('listOfButtons:', listOfButtons)
 
     return (
-  <div  >
-    <div>
-    <TopNav />
-    <div className='list'>
-     {listOfButtons}
-    </div>
-    </div>
-  </div>
+      <div>
+        <div>
+          <TopNav / >
+          <div className='list'>
+            {listOfButtons}
+          </div>
+        </div>
+      </div>
     )
   }
 }
 
 const mapStateToProps = (state) => {
-  return { buttons: state.buttons }
+  return {
+    buttons: state.buttons
+  }
 }
 
 

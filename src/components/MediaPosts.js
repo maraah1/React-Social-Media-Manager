@@ -14,156 +14,162 @@ const a:hover = {
   transition: 'all 0.2s ease-in',
 }
 
-
-
-const lightGrey = {
-  backgroundColor: "#DCDCDC",
-  borderStyle: 'solid',
-  borderColor: '#DCDCDC',
-  margin: '5px',
-  color: 'black',
-  boxShadow: '0 8px 6px -7px black'
-
-}
-
-
-const blue = {
-  backgroundColor: "#46D0F3",
-  borderStyle: 'solid',
-  borderColor: '#46D0F3',
-  margin: '5px',
-  color: 'black',
-  boxShadow: '0 8px 6px -7px black'
-}
-
-const red = {
-  backgroundColor: '#D22424',
-  borderStyle: 'solid',
-  borderColor: '#D22424',
-  margin: '5px',
-  color: 'black',
-  boxShadow: '0 8px 6px -7px black'
-}
-
-const info = {
-  marginLeft: '20px',
-  color: 'grey',
-  marginTop: '5px'
-}
-
-const row = {
-  display: 'flex'
-}
-
-const container = {
-  flex: '50%'
-}
-
-
-const postedPics = {
-  width: 100,
-  height: 100
-}
-
-
-const submission = {
-  marginLeft: '10px',
-  color: 'black',
-  textShadow: '0px 0px 0px'
-}
-
-
-const card = {
-  backgroundColor: 'white',
-  borderWidth: '1px',
-  borderColor: 'grey',
-  margin:'10px',
-  textShadow: '2px 2px 4px lightGrey',
-  boxShadow: '0 8px 6px -6px grey'
-
-
-};
-
-const postt = {
-  display: 'flex',
-  float:'left',
-  marginRight:'200px',
-
-};
-
-const buttons = {
-  display: 'flex',
-  float: 'right',
-  textAlign: 'right',
-  paddingTop: '33px'
-};
-
 class MediaPosts extends Component {
 
-state = {
-  isToggle: false
-}
-
-
-
-handleSubmit = (postId, e) => {
-  e.preventDefault()
-  this.props.deletePosts(postId)
-}
-
-handlePostSubmit = (id, e) => {
-  this.props.postTweet(id)
-   e.target.innerHTML = 'Posted'
-   // setTimeOut(function() )
-}
-
-
-render() {
-
-let {buttons_id, created_at, day, id, image, post, time, updated_at, status} = this.props.post
-console.log('post props:', this.props)
-
-  return(
-  <div className="card " style={card}>
-    <div className="row" style={row}>
-  <div style={info}>
-    <div className="container" style={container}>
-      <div style={postt}>
-         <h5>Post:</h5>
-         <div>
-          {this.props.post.image ? <img style={postedPics} src={image} /> : null}
-          <h5 style={submission}>{post}</h5>
-        </div>
-    </div>
-    {this.props.post.day ?
-    <div style={postt}>
-       <h5>Day:</h5>
-       <div>
-        <h5 style={submission}>{day}</h5>
-    </div>
-  </div> : null}
-  {this.props.post.time ?
-  <div style={postt}>
-     <h5>Time:</h5>
-     <div>
-      <h5 style={submission}>{time}</h5>
-  </div>
-</div> : null}
-</div>
-</div>
-<div className="container" style={container}>
-      <div style={buttons}>
-        {status === "posted" ? null: <button  style={lightGrey} onClick={(e) => this.setState({isToggle: !this.state.isToggle})}><i className="fas fa-pencil-alt"></i></button> }
-        {this.state.isToggle ? <MediaUpdateForm post={this.props.post} /> : null }
-          <button style={blue} onClick={(e) => this.handlePostSubmit(id, e)}>{status === 'posted' ? "Posted" : "Post"}</button>
-          <button style={red} onClick={(e) => this.handleSubmit(id, e)}>Delete</button>
-      </div>
-    </div>
-  </div>
-</div>
-    )
+  state = {
+    isToggle: false
   }
 
+
+
+  handleSubmit = (postId, e) => {
+    e.preventDefault()
+    this.props.deletePosts(postId)
+  }
+
+  handlePostSubmit = (id, e) => {
+    this.props.postTweet(id)
+    e.target.innerHTML = 'Posted'
+
+  }
+
+
+  render() {
+
+    let {buttons_id, created_at, day, id, image, post, time, updated_at, status} = this.props.post
+    let isToggle = this.state.isToggle
+
+      return (
+          <div className="card " style={styles.card}>
+            <div className="row" style={styles.row}>
+              <div style={styles.info}>
+                <div className="container" style={styles.container}>
+                  <div style={styles.postt}>
+                     <h5>Post:</h5>
+                     <div>
+                        {image ? <img style={styles.postedPics} src={image} /> : null}
+                        <h5 style={styles.submission}>{post}</h5>
+                     </div>
+                  </div>
+                 { day &&
+                  <div style={styles.postt}>
+                     <h5>Day:</h5>
+                     <div>
+                        <h5 style={styles.submission}>{day}</h5>
+                     </div>
+                  </div> }
+                { time &&
+                  <div style={styles.postt}>
+                     <h5>Time:</h5>
+                     <div>
+                        <h5 style={styles.submission}>{time}</h5>
+                     </div>
+                  </div> }
+              </div>
+          </div>
+
+          <div className="container" style={styles.container}>
+
+              <div style={styles.buttons}>
+
+                  {status === "posted" ? null :
+                    <button  style={styles.lightGrey} onClick={(e) => ({isToggle: !this.state.isToggle})}>
+                        <i className="fas fa-pencil-alt"></i>
+                    </button>
+                  }
+
+                  {isToggle && <MediaUpdateForm post={post} />}
+
+                  <button style={styles.blue} onClick={(e) => this.handlePostSubmit(id, e)}>
+                      {status === 'posted' ? "Posted" : "Post"}
+                  </button>
+
+                  <button style={styles.red} onClick={(e) => this.handleSubmit(id, e)}>Delete</button>
+              </div>
+
+          </div>
+        </div>
+      </div>
+      )
+   }
+}
+
+const styles = {
+  lightGrey : {
+    backgroundColor: "#DCDCDC",
+    borderStyle: 'solid',
+    borderColor: '#DCDCDC',
+    margin: '5px',
+    color: 'black',
+    boxShadow: '0 8px 6px -7px black'
+
+  },
+
+  blue : {
+    backgroundColor: "#46D0F3",
+    borderStyle: 'solid',
+    borderColor: '#46D0F3',
+    margin: '5px',
+    color: 'black',
+    boxShadow: '0 8px 6px -7px black'
+  },
+
+  red : {
+    backgroundColor: '#D22424',
+    borderStyle: 'solid',
+    borderColor: '#D22424',
+    margin: '5px',
+    color: 'black',
+    boxShadow: '0 8px 6px -7px black'
+  },
+
+  info : {
+    marginLeft: '20px',
+    color: 'grey',
+    marginTop: '5px'
+  },
+
+  row : {
+    display: 'flex'
+  },
+
+  container : {
+    flex: '50%'
+  },
+
+  postedPics : {
+    width: 100,
+    height: 100
+  },
+
+  submission : {
+    marginLeft: '10px',
+    color: 'black',
+    textShadow: '0px 0px 0px'
+  },
+
+  card : {
+    backgroundColor: 'white',
+    borderWidth: '1px',
+    borderColor: 'grey',
+    margin:'10px',
+    textShadow: '2px 2px 4px lightGrey',
+    boxShadow: '0 8px 6px -6px grey'
+  },
+
+  postt : {
+    display: 'flex',
+    float:'left',
+    marginRight:'200px',
+
+  },
+
+  buttons : {
+    display: 'flex',
+    float: 'right',
+    textAlign: 'right',
+    paddingTop: '33px'
+  }
 }
 
 const mapStateToProps = (state) => {
